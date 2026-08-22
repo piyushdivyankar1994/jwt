@@ -3,5 +3,5 @@
 #include <stddef.h>
 #include <stdint.h>
 char *sha256_encode(const char *input, const size_t len);
-uint8_t *sha256_binary(const char *input, const size_t len, uint8_t *output);
+void sha256_binary(const char *input, const size_t len, uint8_t *output);
 #endif

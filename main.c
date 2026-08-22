@@ -1,3 +1,4 @@
+#include "hashing/hs256.h"
 #include "hashing/sha_256.h"
 #include "utils/base64Url.h"
 
@@ -54,8 +55,8 @@ char *sign(const char *header, const char *payload, char *secret) {
   memcpy(payload_ptr, encoded_payload, enc_payload_len);
 
   size_t secret_len = strlen(secret);
-  char *signature =
-      sha256_encode(header_ptr, enc_header_len + 1 + enc_payload_len);
+  char *signature = hs256_encode(
+      header_ptr, enc_header_len + 1 + enc_payload_len, secret, secret_len);
   printf("%s\n", signature);
   return NULL;
 }
